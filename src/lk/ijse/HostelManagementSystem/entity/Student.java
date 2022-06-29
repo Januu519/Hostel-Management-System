@@ -1,6 +1,10 @@
 package lk.ijse.HostelManagementSystem.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class Student {
+    @Id
     private String studentId;
     private String studentName;
     private String studentAddress;
@@ -12,6 +16,7 @@ public class Student {
     }
 
     public Student(String studentId, String studentName, String studentAddress, int contact, String dob, String gender) {
+
         this.studentId = studentId;
         this.studentName = studentName;
         this.studentAddress = studentAddress;

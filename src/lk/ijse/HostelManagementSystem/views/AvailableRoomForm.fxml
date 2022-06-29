@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="744.0" prefWidth="1026.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.HostelManagementSystem.controller.AvailableRoomFormController">
+   <children>
+      <Pane prefHeight="744.0" prefWidth="1026.0" style="-fx-background-color: #1B1464;">
+         <children>
+            <Pane prefHeight="82.0" prefWidth="1026.0" style="-fx-background-color: #00d2d3;">
+               <children>
+                  <Label fx:id="availableroomsaContext" layoutX="268.0" layoutY="9.0" text="A v a i l a b l e  R o o m s" textFill="#e5ff00">
+                     <font>
+                        <Font name="System Bold" size="44.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <TableView fx:id="roomTable" layoutX="34.0" layoutY="154.0" prefHeight="500.0" prefWidth="932.0">
+              <columns>
+                <TableColumn fx:id="roomId" prefWidth="169.0" text="Room Id " />
+                <TableColumn fx:id="roomType" prefWidth="255.0" text="Room Type" />
+                  <TableColumn fx:id="keyMoney" prefWidth="259.0" text="Key Money" />
+                  <TableColumn fx:id="qty" prefWidth="246.0" text="Qty" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

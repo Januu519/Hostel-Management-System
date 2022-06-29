@@ -1,7 +1,11 @@
 package lk.ijse.HostelManagementSystem.entity;
 
-public class Room {
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
+public class Room {
+    @Id
     private String roomId;
     private String roomType;
     private String keyMoney;
