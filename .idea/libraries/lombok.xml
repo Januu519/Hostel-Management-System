@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="lombok">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/src/lk/ijse/HostelManagementSystem/lib/lombok" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/src/lk/ijse/HostelManagementSystem/lib/lombok" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/src/lk/ijse/HostelManagementSystem/lib/lombok" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/src/lk/ijse/HostelManagementSystem/lib/lombok" recursive="false" type="SOURCES" />
+  </library>
+</component>

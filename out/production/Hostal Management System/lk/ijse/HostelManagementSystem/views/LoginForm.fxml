@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="LogInContext" prefHeight="500.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.HostelManagementSystem.controller.LoginPageFormController">
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="906.0" pickOnBounds="true">
+         <image>
+            <Image url="@../asserts/2112.w015.n001.670B.p15.670.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#424506" height="500.0" opacity="0.54" stroke="#bcb311" strokeType="INSIDE" width="906.0" />
+      <Label layoutX="202.0" layoutY="55.0" text="D 24 Hostel Management System" textFill="#ffed00">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="349.0" layoutY="14.0" text="Welcome" textFill="#e0de00">
+         <font>
+            <Font name="System Bold" size="39.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="64.0" fitWidth="57.0" layoutX="315.0" layoutY="200.0" pickOnBounds="true">
+         <image>
+            <Image url="@../asserts/user-silhouette.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="71.0" fitWidth="69.0" layoutX="309.0" layoutY="303.0" pickOnBounds="true">
+         <image>
+            <Image url="@../asserts/password.png" />
+         </image>
+      </ImageView>
+      <JFXPasswordField fx:id="pwdPassword" labelFloat="true" layoutX="404.0" layoutY="316.0" prefHeight="45.0" prefWidth="309.0" promptText="Password" style="-fx-prompt-text-fill: #fff200;" unFocusColor="#f4ff25">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXTextField fx:id="txtUsername" labelFloat="true" layoutX="393.0" layoutY="219.0" prefHeight="37.0" prefWidth="320.0" promptText="Username" style="-fx-prompt-text-fill: #fff200;" unFocusColor="#fff71a">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="loginBtn" layoutX="368.0" layoutY="431.0" onAction="#btnLoginOnAction" prefHeight="47.0" prefWidth="171.0" style="-fx-background-color: #fff200;" text="Login">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="cancelBtn" layoutX="584.0" layoutY="431.0" onAction="#btnCancelOnAction" prefHeight="47.0" prefWidth="171.0" style="-fx-background-color: #fff200;" text="Cancel">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

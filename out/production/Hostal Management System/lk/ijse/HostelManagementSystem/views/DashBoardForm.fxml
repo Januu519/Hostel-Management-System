@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="adminContext" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.HostelManagementSystem.controller.DashBoardFormController">
+   <children>
+      <Pane layoutY="67.0" prefHeight="744.0" prefWidth="291.0" style="-fx-background-color: #218c74;">
+         <children>
+            <JFXButton layoutX="76.0" layoutY="249.0" onAction="#btnManageStudentsOnAction" prefHeight="50.0" prefWidth="211.0" text="Manage Students">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="81.0" layoutY="357.0" onAction="#btnManageRoomsOnAction" text="Manage Rooms">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="72.0" layoutY="157.0" onAction="#btnNewReservationOnAction" prefHeight="50.0" prefWidth="219.0" text="New Reservation">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="67.0" fitWidth="69.0" layoutX="14.0" layoutY="241.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../asserts/teamwork.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="67.0" fitWidth="69.0" layoutX="14.0" layoutY="339.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../asserts/bedroom.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="67.0" fitWidth="69.0" layoutX="14.0" layoutY="149.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../asserts/add-file.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="52.0" layoutX="57.0" layoutY="618.0" pickOnBounds="true" preserveRatio="true" />
+         </children></Pane>
+      <Pane prefHeight="67.0" prefWidth="1315.0" style="-fx-background-color: #218c74;">
+         <children>
+            <Label layoutX="724.0" layoutY="1.0" text="Date :">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="721.0" layoutY="34.0" text="Time :">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDate" layoutX="777.0" layoutY="3.0" text="2022-06-22">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+            <Label fx:id="lblTime" layoutX="777.0" layoutY="37.0" text="22:34:40">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Label>
+            <Label layoutX="14.0" layoutY="4.0" text="Hostel Management System">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="mainContext" layoutX="289.0" layoutY="67.0" prefHeight="744.0" prefWidth="1026.0" style="-fx-background-color: green;" />
+   </children>
+</AnchorPane>
