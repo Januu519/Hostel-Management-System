@@ -19,6 +19,12 @@ public class StudentsManageFormController {
     public AnchorPane manageStudentsContext;
 
     public void btnClearOnAction(ActionEvent actionEvent) {
+        /*studentId.clear();
+        studentName.clear();
+        studentAddress.clear();
+        studentContact.clear();
+        dobField.clear();
+        genderField.clear();*/
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {

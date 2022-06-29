@@ -42,4 +42,10 @@ public class DashBoardFormController {
         mainContext.getChildren().add(parent);
 
     }
+
+    public void btnManageUsersOnAction(ActionEvent actionEvent) throws IOException {
+        mainContext.getChildren().clear();
+        Parent parent = FXMLLoader.load(getClass().getResource("../views/ManageUserForm.fxml"));
+        mainContext.getChildren().add(parent);
+    }
 }
