@@ -30,43 +30,43 @@
          </children>
       </Pane>
       <Separator layoutX="-2.0" layoutY="82.0" opacity="0.33" prefHeight="3.0" prefWidth="1026.0" />
-      <JFXTextField labelFloat="true" layoutX="63.0" layoutY="171.0" prefHeight="31.0" prefWidth="340.0" promptText="User Id" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtUserId" labelFloat="true" layoutX="63.0" layoutY="171.0" prefHeight="31.0" prefWidth="340.0" promptText="User Id" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXTextField>
-      <JFXTextField labelFloat="true" layoutX="63.0" layoutY="249.0" prefHeight="31.0" prefWidth="340.0" promptText="User's Name" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtUsersName" labelFloat="true" layoutX="63.0" layoutY="265.0" prefHeight="31.0" prefWidth="340.0" promptText="User's Name" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXTextField>
-      <JFXTextField labelFloat="true" layoutX="63.0" layoutY="344.0" prefHeight="31.0" prefWidth="340.0" promptText="Address" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="63.0" layoutY="367.0" prefHeight="31.0" prefWidth="340.0" promptText="Address" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXTextField>
-      <JFXTextField labelFloat="true" layoutX="63.0" layoutY="492.0" prefHeight="31.0" prefWidth="340.0" promptText="Contact" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtContact" labelFloat="true" layoutX="56.0" layoutY="474.0" prefHeight="31.0" prefWidth="340.0" promptText="Contact" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXTextField>
-      <Separator layoutX="526.0" layoutY="178.0" orientation="VERTICAL" prefHeight="422.0" prefWidth="7.0" />
-      <JFXTextField labelFloat="true" layoutX="566.0" layoutY="178.0" prefHeight="31.0" prefWidth="268.0" promptText="Username" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
+      <Separator layoutX="481.0" layoutY="193.0" orientation="VERTICAL" prefHeight="347.0" prefWidth="4.0" />
+      <JFXTextField fx:id="txtUsername" labelFloat="true" layoutX="547.0" layoutY="178.0" prefHeight="45.0" prefWidth="304.0" promptText="Username" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField labelFloat="true" layoutX="579.0" layoutY="284.0" prefHeight="31.0" prefWidth="268.0" promptText="Password" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
+      <JFXPasswordField fx:id="pwdPassword" labelFloat="true" layoutX="548.0" layoutY="265.0" prefHeight="45.0" prefWidth="304.0" promptText="Password" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXPasswordField>
-      <JFXPasswordField layoutX="589.0" layoutY="406.0" prefHeight="45.0" prefWidth="268.0" promptText="Confirm Password" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
+      <JFXPasswordField fx:id="pdwConfirmPassword" layoutX="543.0" layoutY="350.0" prefHeight="45.0" prefWidth="313.0" promptText="Confirm Password" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXPasswordField>
-      <Button layoutX="566.0" layoutY="673.0" mnemonicParsing="false" text="Update Account" />
-      <Button layoutX="769.0" layoutY="673.0" mnemonicParsing="false" text="Delete Account" />
+      <Button layoutX="566.0" layoutY="673.0" mnemonicParsing="false" onAction="#btnUpdateAccountOnAction" text="Update Account" />
+      <Button layoutX="769.0" layoutY="673.0" mnemonicParsing="false" onAction="#btnDeleteAccountOnAction" text="Delete Account" />
    </children>
 </AnchorPane>
