@@ -24,21 +24,21 @@ public class DashBoardFormController {
 
     public void btnNewReservationOnAction(ActionEvent actionEvent) throws IOException {
         mainContext.getChildren().clear();
-        Parent parent = FXMLLoader.load(getClass().getResource("../view/NewReservationForm.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("../views/NewReservationForm.fxml"));
         mainContext.getChildren().add(parent);
 
     }
 
     public void btnManageRoomsOnAction(ActionEvent actionEvent) throws IOException {
         mainContext.getChildren().clear();
-        Parent parent = FXMLLoader.load(getClass().getResource("../view/ManageRoomForm.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("../views/ManageRoomForm.fxml"));
         mainContext.getChildren().add(parent);
 
     }
 
     public void btnManageStudentsOnAction(ActionEvent actionEvent) throws IOException {
         mainContext.getChildren().clear();
-        Parent parent = FXMLLoader.load(getClass().getResource("../view/ManageStudentForm.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("../views/StudentsManageForm.fxml"));
         mainContext.getChildren().add(parent);
 
     }

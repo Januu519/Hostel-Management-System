@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -12,39 +14,38 @@
 
 <AnchorPane fx:id="manageRoomsContext" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.HostelManagementSystem.controller.ManageRoomFormController">
    <children>
-      <Pane prefHeight="744.0" prefWidth="1026.0" style="-fx-background-color: #218c74;">
+      <Pane prefHeight="744.0" prefWidth="1026.0" style="-fx-background-color: black;">
          <children>
-            <Label layoutX="32.0" layoutY="14.0" text="Manage Rooms" textFill="#f3ff06">
-               <font>
-                  <Font name="System Bold" size="42.0" />
-               </font>
-            </Label>
-            <Separator layoutX="14.0" layoutY="84.0" opacity="0.3" prefHeight="0.0" prefWidth="977.0" />
+            <ImageView fitHeight="744.0" fitWidth="1026.0" layoutX="-1.0" layoutY="1.0" opacity="0.41" pickOnBounds="true">
+               <image>
+                  <Image url="@../asserts/66hj_jpi4_201128.jpg" />
+               </image>
+            </ImageView>
             <JFXTextField fx:id="txtKeymoney" layoutX="285.0" layoutY="416.0" prefHeight="31.0" prefWidth="376.0" unFocusColor="WHITE" />
             <JFXTextField fx:id="txtRoomId" layoutX="285.0" layoutY="235.0" prefHeight="31.0" prefWidth="376.0" unFocusColor="WHITE" />
             <JFXTextField fx:id="txtQty" layoutX="285.0" layoutY="512.0" prefHeight="31.0" prefWidth="376.0" unFocusColor="WHITE" />
             <JFXComboBox fx:id="roomTypeBox" layoutX="285.0" layoutY="326.0" prefHeight="31.0" prefWidth="376.0" unFocusColor="WHITE" />
-            <Text layoutX="84.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Room :">
+            <Text fill="WHITE" layoutX="84.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-prompt-text-fill: white;" text="Select Room :">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Text>
-            <Text layoutX="85.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Id :">
+            <Text fill="WHITE" layoutX="85.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Id :">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Text>
-            <Text layoutX="82.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Type :">
+            <Text fill="WHITE" layoutX="82.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Type :">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Text>
-            <Text layoutX="83.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Key Money :">
+            <Text fill="WHITE" layoutX="83.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Key Money :">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Text>
-            <Text layoutX="99.0" layoutY="537.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty :">
+            <Text fill="WHITE" layoutX="99.0" layoutY="537.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty :">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -54,6 +55,16 @@
             <Button layoutX="274.0" layoutY="643.0" mnemonicParsing="false" onAction="#btnAddRoomOnAction" text="Add Room" />
             <Button layoutX="460.0" layoutY="643.0" mnemonicParsing="false" onAction="#btnUpdateRoomOnAction" text="Update Room" />
             <Button layoutX="683.0" layoutY="643.0" mnemonicParsing="false" onAction="#btnDeleteOnaction" text="Delete Room" />
+            <Pane layoutX="-1.0" layoutY="1.0" opacity="0.85" prefHeight="77.0" prefWidth="1026.0" style="-fx-background-color: #8e44ad;">
+               <children>
+                  <Label layoutX="268.0" layoutY="8.0" text="M a n a g e  R o o m s" textFill="#f3ff06">
+                     <font>
+                        <Font name="System Bold" size="42.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Separator layoutX="-1.0" layoutY="79.0" opacity="0.32" prefWidth="1026.0" />
          </children></Pane>
    </children>
 </AnchorPane>

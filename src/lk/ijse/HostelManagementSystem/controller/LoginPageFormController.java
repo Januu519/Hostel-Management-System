@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -24,10 +25,19 @@ public class LoginPageFormController {
 
     private void setUi(String location) throws IOException {
         Stage stage = (Stage) LogInContext.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/" + location + ".fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../views/" + location + ".fxml"))));
         stage.centerOnScreen();
     }
+    // show password function
+  /*  public void showPassword(MouseEvent mouseEvent) {
+        System.out.println("Show password function");
+        */
 
+
+
+    // close form
     public void btnCancelOnAction(ActionEvent actionEvent) {
+        System.out.println("Cancel function");
+
     }
 }

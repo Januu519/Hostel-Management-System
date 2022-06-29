@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,24 +11,24 @@
 
 <AnchorPane fx:id="adminContext" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.HostelManagementSystem.controller.DashBoardFormController">
    <children>
-      <Pane layoutY="67.0" prefHeight="744.0" prefWidth="291.0" style="-fx-background-color: #218c74;">
+      <Pane layoutY="67.0" prefHeight="744.0" prefWidth="291.0" style="-fx-background-color: #6D214F;">
          <children>
-            <JFXButton layoutX="76.0" layoutY="249.0" onAction="#btnManageStudentsOnAction" prefHeight="50.0" prefWidth="211.0" text="Manage Students">
+            <JFXButton layoutX="83.0" layoutY="205.0" onAction="#btnManageStudentsOnAction" prefHeight="50.0" prefWidth="211.0" text="Manage Students" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="81.0" layoutY="357.0" onAction="#btnManageRoomsOnAction" text="Manage Rooms">
+            <JFXButton layoutX="81.0" layoutY="347.0" onAction="#btnManageRoomsOnAction" text="Manage Rooms" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="72.0" layoutY="157.0" onAction="#btnNewReservationOnAction" prefHeight="50.0" prefWidth="219.0" text="New Reservation">
+            <JFXButton layoutX="79.0" layoutY="76.0" onAction="#btnNewReservationOnAction" prefHeight="50.0" prefWidth="219.0" text="New Reservation" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
             </JFXButton>
-            <ImageView fitHeight="67.0" fitWidth="69.0" layoutX="14.0" layoutY="241.0" pickOnBounds="true">
+            <ImageView fitHeight="67.0" fitWidth="69.0" layoutX="14.0" layoutY="196.0" pickOnBounds="true">
                <image>
                   <Image url="@../asserts/teamwork.png" />
                </image>
@@ -37,38 +38,44 @@
                   <Image url="@../asserts/bedroom.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="67.0" fitWidth="69.0" layoutX="14.0" layoutY="149.0" pickOnBounds="true">
+            <ImageView fitHeight="67.0" fitWidth="69.0" layoutX="14.0" layoutY="59.0" pickOnBounds="true">
                <image>
                   <Image url="@../asserts/add-file.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="50.0" fitWidth="52.0" layoutX="57.0" layoutY="618.0" pickOnBounds="true" preserveRatio="true" />
          </children></Pane>
-      <Pane prefHeight="67.0" prefWidth="1315.0" style="-fx-background-color: #218c74;">
+      <Pane prefHeight="67.0" prefWidth="1315.0" style="-fx-background-color: #6D214F;">
          <children>
-            <Label layoutX="724.0" layoutY="1.0" text="Date :">
+            <Label layoutX="324.0" layoutY="34.0" text="Date :" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="721.0" layoutY="34.0" text="Time :">
+            <Label layoutX="473.0" layoutY="33.0" text="Time :" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblDate" layoutX="777.0" layoutY="3.0" text="2022-06-22">
+            <Label fx:id="lblDate" layoutX="371.0" layoutY="34.0" text="2022-06-22" textFill="#fffbfb">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></Label>
-            <Label fx:id="lblTime" layoutX="777.0" layoutY="37.0" text="22:34:40">
+            <Label fx:id="lblTime" layoutX="532.0" layoutY="37.0" text="22:34:40" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Label>
-            <Label layoutX="14.0" layoutY="4.0" text="Hostel Management System">
+            <Label layoutX="298.0" layoutY="10.0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="32.0" />
                </font>
             </Label>
+            <Label layoutX="29.0" layoutY="14.0" text="D A S H B O A R D" textFill="#bfa6a6">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <Separator layoutX="458.0" layoutY="33.0" orientation="VERTICAL" prefHeight="27.0" prefWidth="15.0" />
          </children>
       </Pane>
       <AnchorPane fx:id="mainContext" layoutX="289.0" layoutY="67.0" prefHeight="744.0" prefWidth="1026.0" style="-fx-background-color: green;" />
