@@ -46,4 +46,7 @@ public class RoomBoImpl implements RoomBo {
     public ArrayList<String> searchRoomCode() throws SQLException, ClassNotFoundException, IOException {
         return roomDaoImpl.searchId();
     }
+
+    public boolean updateQty(String selectedRoom) {
+    }
 }

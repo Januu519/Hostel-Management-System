@@ -64,6 +64,7 @@ public class NewReservationFormController implements Initializable {
     String status;
 
 
+    @SneakyThrows
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -87,8 +88,8 @@ public class NewReservationFormController implements Initializable {
 
     }
 
-    private String generateRoomId() throws SQLException, ClassNotFoundException {
-        String rId =reservationBo.generateNewId();
+    private String generateRoomId() throws SQLException, ClassNotFoundException, IOException {
+        String rId = reservationBo.generateNewId();
         if (rId != null) {
             int newId = Integer.parseInt(rId.replace("RES-", "")) + 1;
             return String.format("RES-%03d", newId);
@@ -97,19 +98,85 @@ public class NewReservationFormController implements Initializable {
         }
     }
 
-    private void loadAllId() throws SQLException, ClassNotFoundException {
+    private void loadAllId() throws SQLException, ClassNotFoundException, IOException {
         ArrayList<String> room = roomBoImpl.searchRoomCode();
-        ObservableList oList= FXCollections.observableArrayList(room);
+        ObservableList oList = FXCollections.observableArrayList(room);
         roomIdBox.setItems(oList);
     }
 
-    private String generateStudentId() throws SQLException, ClassNotFoundException {
+    private String generateStudentId() throws SQLException, ClassNotFoundException, IOException {
         String stId = studentBoImpl.generateNewStudentId();
         if (stId != null) {
             int newId = Integer.parseInt(stId.replace("S00-", "")) + 1;
             return String.format("S00-%03d", newId);
         } else {
             return "S00-001";
+        }
+    }
+
+
+    public void comfirmReservation(ActionEvent actionEvent) throws SQLException, ClassNotFoundException, IOException {
+        addStudent();
+    }
+
+    private void addStudent() throws SQLException, ClassNotFoundException, IOException {
+        String sId = studentId.getText();
+        String sName = studentName.getText();
+        String sAddress = studentAddress.getText();
+        String sContact = studentContact.getText();
+        String dob = String.valueOf(DatePicker.getValue());
+        String gd = gender;
+
+        boolean s = studentBoImpl.saveStudent(new Student(sId, sName, sAddress, Integer.parseInt(sContact), dob, gd));
+        selectRoom(sId);
+    }
+
+    private void selectRoom(String sId) throws SQLException, ClassNotFoundException, IOException {
+        String resId = roomId.getText();
+        String roomT = roomType.getText();
+        String resDate = today();
+        String rmId = roomId.getText();
+
+        Reservation res = new Reservation(resId, roomT, sId, resDate, status);
+        boolean r = reservationBo.saveReservation(res);
+        if (r) {
+            System.out.println("done");
+        }
+        manageRoom();
+    }
+
+    private void manageRoom() throws SQLException, ClassNotFoundException {
+        String selectedRoom = roomType.getText();
+
+        boolean d = roomBoImpl.updateQty(selectedRoom);
+    }
+
+    private String today() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String dte = dtf.format(now);
+        return dte;
+    }
+
+    public void genderAction(ActionEvent actionEvent) {
+        if (maleBtn.isSelected()) {
+            gender = "Male";
+            femaleBtn.setSelected(false);
+        }
+        if (femaleBtn.isSelected()) {
+            gender = "Female";
+            maleBtn.setSelected(false);
+        }
+    }
+
+    public void payAction(ActionEvent actionEvent) {
+        if (payNow.isSelected()) {
+            status = "Key Money is Done";
+            payLater.setSelected(false);
+        }
+        if (payLater.isSelected()) {
+            status = "Key Money is not Payed";
+            payNow.setSelected(false);
         }
     }
 
@@ -127,79 +194,14 @@ public class NewReservationFormController implements Initializable {
     // Navigation
     public void checkRooms(ActionEvent actionEvent) throws IOException {
         newResevationContext.getChildren().clear();
-        Parent parent = FXMLLoader.load(getClass().getResource("../view/AllReservationsForm.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("../view/AllReservationForm.fxml"));
         newResevationContext.getChildren().add(parent);
     }
 
     // Navigation
     public void checkAvailableRooms(ActionEvent actionEvent) throws IOException {
         newResevationContext.getChildren().clear();
-        Parent parent = FXMLLoader.load(getClass().getResource("../view/AvailableRoomForm.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("../view/AVailableRoomForm.fxml"));
         newResevationContext.getChildren().add(parent);
     }
-
-    public void comfirmReservation(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        addStudent();
-    }
-
-    private void addStudent() throws SQLException, ClassNotFoundException {
-        String sId = studentId.getText();
-        String sName = studentName.getText();
-        String sAddress = studentAddress.getText();
-        String sContact = studentContact.getText();
-        String dob = String.valueOf(DatePicker.getValue());
-        String gd = gender;
-
-        boolean s = studentBoImpl.saveStudent(new Student(sId,sName,sAddress,Integer.parseInt(sContact),dob,gd));
-        selectRoom(sId);
-
-
-    }
-
-    private void selectRoom(String sId) throws SQLException, ClassNotFoundException {
-        String resId = roomId.getText();
-        String roomT = roomType.getText();
-        String resDate = today();
-        String rmId = roomId.getText();
-
-        Reservation res = new Reservation(resId,roomT,sId,resDate,status);
-        boolean r = reservationBo.saveReservation(res);
-        if (r){
-            System.out.println("done");
-        }
-
-    }
-
-    private String today() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        String dte = dtf.format(now);
-        return dte;
-    }
-
-
-
-    public void genderAction(ActionEvent actionEvent) {
-        if (maleBtn.isSelected()){
-            gender = "Male";
-            femaleBtn.setSelected(false);
-        }
-        if (femaleBtn.isSelected()){
-            gender = "Female";
-            maleBtn.setSelected(false);
-        }
-    }
-
-    public void payAction(ActionEvent actionEvent) {
-        if (payNow.isSelected()){
-            status = "Key Money is Done";
-            payLater.setSelected(false);
-        }
-        if (payLater.isSelected()){
-            status = "Key Money is not Payed";
-            payNow.setSelected(false);
-        }
-    }
 }
-
-
