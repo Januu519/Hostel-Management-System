@@ -38,12 +38,12 @@ public class RoomBoImpl implements RoomBo {
     }
 
     @Override
-    public Room searchRoom(String code) throws SQLException, ClassNotFoundException {
-        return null;
+    public Room searchRoom(String code) throws SQLException, ClassNotFoundException, IOException {
+        return roomDaoImpl.search(code);
     }
 
     @Override
-    public ArrayList<String> searchRoomCode() throws SQLException, ClassNotFoundException {
-        return null;
+    public ArrayList<String> searchRoomCode() throws SQLException, ClassNotFoundException, IOException {
+        return roomDaoImpl.searchId();
     }
 }

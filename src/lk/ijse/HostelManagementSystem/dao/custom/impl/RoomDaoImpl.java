@@ -5,10 +5,13 @@ import lk.ijse.HostelManagementSystem.entity.Room;
 import lk.ijse.HostelManagementSystem.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class RoomDaoImpl implements RoomDao {
     private Session session;
@@ -41,12 +44,42 @@ public class RoomDaoImpl implements RoomDao {
     }
 
     @Override
-    public ArrayList<String> searchId() throws SQLException, ClassNotFoundException {
-        return null;
+    public ArrayList<String> searchId() throws SQLException, ClassNotFoundException, IOException {
+        ArrayList<String> idList = new ArrayList<>();
+
+        session = FactoryConfiguration.getInstance().getSession();
+        transaction = session.beginTransaction();
+        String hql = "FROM Room";
+        Query query = session.createQuery(hql);
+        List<Room> roomList = query.list();
+
+        for (Room room: roomList) {
+            idList.add(room.getRoomId());
+        }
+
+        transaction.commit();
+        session.close();
+
+        return idList;
     }
 
     @Override
-    public Room search(String s) throws SQLException, ClassNotFoundException {
+    public Room search(String s) throws SQLException, ClassNotFoundException, IOException {
+        session = FactoryConfiguration.getInstance().getSession();
+        transaction = session.beginTransaction();
+
+        String hql = "FROM Room WHERE roomId =:room_id";
+        Query query = session.createQuery(hql);
+        query.setParameter("room_id",s);
+        List<Room> roomList = query.list();
+
+        for (Room room: roomList) {
+            return room;
+        }
+
+        transaction.commit();
+        session.close();
+
         return null;
     }
 
@@ -71,5 +104,6 @@ public class RoomDaoImpl implements RoomDao {
         session.close();
         return true;
     }
+
 
 }

@@ -18,7 +18,10 @@ public interface RoomBo extends SuperBo {
 
     boolean existsRoom(String code) throws SQLException, ClassNotFoundException;
 
-    Room searchRoom(String code) throws SQLException, ClassNotFoundException;
+    Room searchRoom(String code) throws SQLException, ClassNotFoundException, IOException;
 
-    ArrayList<String> searchRoomCode() throws SQLException, ClassNotFoundException;
+    ArrayList<String> searchRoomCode() throws SQLException, ClassNotFoundException, IOException;
+
+
+
 }

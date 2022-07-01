@@ -1,5 +1,6 @@
 package lk.ijse.HostelManagementSystem.util;
 
+import lk.ijse.HostelManagementSystem.entity.Reservation;
 import lk.ijse.HostelManagementSystem.entity.Room;
 import lk.ijse.HostelManagementSystem.entity.Student;
 import lk.ijse.HostelManagementSystem.entity.User;
@@ -21,7 +22,7 @@ public class FactoryConfiguration {
         p.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("hibernate.properties"));
         configuration.setProperties(p);
 
-       /* configuration.addAnnotatedClass(Reservation.class);*/
+       configuration.addAnnotatedClass(Reservation.class);
         configuration.addAnnotatedClass(Student.class);
         configuration.addAnnotatedClass(Room.class);
         configuration.addAnnotatedClass(User.class);

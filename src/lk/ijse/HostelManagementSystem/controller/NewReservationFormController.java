@@ -102,13 +102,23 @@ public class NewReservationFormController implements Initializable {
     }
 
     private void loadAllId() throws SQLException, ClassNotFoundException {
-        ArrayList<String> room = roomBoImpl.searchRoomCode();
+        ArrayList<String> room = null;
+        try {
+            room = roomBoImpl.searchRoomCode();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         ObservableList oList= FXCollections.observableArrayList(room);
         roomIdBox.setItems(oList);
     }
 
-    private String generateStudentId() throws SQLException, ClassNotFoundException, IOException {
-        String stId = studentBoImpl.generateNewStudentId();
+    private String generateStudentId() throws SQLException, ClassNotFoundException {
+        String stId = null;
+        try {
+            stId = studentBoImpl.generateNewStudentId();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if (stId != null) {
             int newId = Integer.parseInt(stId.replace("S00-", "")) + 1;
             return String.format("S00-%03d", newId);
@@ -142,11 +152,11 @@ public class NewReservationFormController implements Initializable {
         newResevationContext.getChildren().add(parent);
     }
 
-    public void comfirmReservation(ActionEvent actionEvent) throws SQLException, ClassNotFoundException, IOException {
+    public void comfirmReservation(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         addStudent();
     }
 
-    private void addStudent() throws SQLException, ClassNotFoundException, IOException {
+    private void addStudent() throws SQLException, ClassNotFoundException {
         String sId = studentId.getText();
         String sName = studentName.getText();
         String sAddress = studentAddress.getText();
@@ -154,20 +164,29 @@ public class NewReservationFormController implements Initializable {
         String dob = String.valueOf(DatePicker.getValue());
         String gd = gender;
 
-        boolean s = studentBoImpl.saveStudent(new Student(sId,sName,sAddress,Integer.parseInt(sContact),dob,gd));
+        try {
+            boolean s = studentBoImpl.saveStudent(new Student(sId,sName,sAddress,Integer.parseInt(sContact),dob,gd));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         selectRoom(sId);
 
 
     }
 
-    private void selectRoom(String sId) throws SQLException, ClassNotFoundException, IOException {
+    private void selectRoom(String sId) throws SQLException, ClassNotFoundException {
         String resId = roomId.getText();
         String roomT = roomType.getText();
         String resDate = today();
         String rmId = roomId.getText();
 
         Reservation res = new Reservation(resId,roomT,sId,resDate,status);
-        boolean r = reservationBo.saveReservation(res);
+        boolean r = false;
+        try {
+            r = reservationBo.saveReservation(res);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if (r){
             System.out.println("done");
         }
