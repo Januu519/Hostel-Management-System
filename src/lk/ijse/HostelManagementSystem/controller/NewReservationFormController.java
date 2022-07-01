@@ -71,7 +71,10 @@ public class NewReservationFormController {
         }
     }
 
-    public void checkRooms(ActionEvent actionEvent) {
+    public void checkRooms(ActionEvent actionEvent) throws IOException {
+        newResevationContext.getChildren().clear();
+        Parent parent = FXMLLoader.load(getClass().getResource("../view/AllReservationsForm.fxml"));
+        newResevationContext.getChildren().add(parent);
     }
 
     public void checkAvailableRooms(ActionEvent actionEvent) throws IOException {
@@ -82,5 +85,6 @@ public class NewReservationFormController {
     }
 
     public void comfirmReservation(ActionEvent actionEvent) {
+
     }
 }
