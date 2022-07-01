@@ -48,5 +48,6 @@ public class RoomBoImpl implements RoomBo {
     }
 
     public boolean updateQty(String selectedRoom) {
+        return false;
     }
 }
