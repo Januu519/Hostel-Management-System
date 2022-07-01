@@ -16,16 +16,13 @@ public class DashBoardFormController {
 
 
 
-   /* public void initialize() throws IOException {
-        mainContext.getChildren().clear();
-        Parent parent = FXMLLoader.load(getClass().getResource("../view/NewReservationForm.fxml"));
-        mainContext.getChildren().add(parent);*/
 
 
     public void btnNewReservationOnAction(ActionEvent actionEvent) throws IOException {
         mainContext.getChildren().clear();
         Parent parent = FXMLLoader.load(getClass().getResource("../views/NewReservationForm.fxml"));
         mainContext.getChildren().add(parent);
+
 
     }
 
