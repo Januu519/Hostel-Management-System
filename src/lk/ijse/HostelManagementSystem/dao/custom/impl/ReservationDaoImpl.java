@@ -5,6 +5,7 @@ import lk.ijse.HostelManagementSystem.entity.Reservation;
 import lk.ijse.HostelManagementSystem.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -22,18 +23,14 @@ public class ReservationDaoImpl implements ReservationDao {
 
     @Override
     public String generateNewID() throws SQLException, ClassNotFoundException, IOException {
-        session = FactoryConfiguration.getInstance().getSession();
-        transaction = session.beginTransaction();
-
-        String hql = "FROM Reservation ORDER BY resId DESC ";
-        List<Reservation> reservationList = session.createQuery(hql).list();
-        for (Reservation reservation: reservationList) {
-            String  lastId = reservation.getResId();
-            return lastId;
-        }
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        NativeQuery query = session.createSQLQuery("SELECT res_id FROM RoomReservation ORDER BY res_id DESC LIMIT 1");
+        String id = (String) query.uniqueResult();
+        int newCustomerId = Integer.parseInt(id.replace("RID-", "")) + 1;
         transaction.commit();
-        session.close();
-        return null;
+        return String.format("RID-%03d", newCustomerId);
+
     }
 
     @Override

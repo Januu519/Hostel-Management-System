@@ -64,9 +64,6 @@ public class NewReservationFormController implements Initializable {
     String status;
 
 
-
-
-    @SneakyThrows
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -90,8 +87,7 @@ public class NewReservationFormController implements Initializable {
 
     }
 
-    @SneakyThrows
-    private String generateRoomId() throws SQLException, ClassNotFoundException{
+    private String generateRoomId() throws SQLException, ClassNotFoundException {
         String rId =reservationBo.generateNewId();
         if (rId != null) {
             int newId = Integer.parseInt(rId.replace("RES-", "")) + 1;
@@ -102,23 +98,13 @@ public class NewReservationFormController implements Initializable {
     }
 
     private void loadAllId() throws SQLException, ClassNotFoundException {
-        ArrayList<String> room = null;
-        try {
-            room = roomBoImpl.searchRoomCode();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        ArrayList<String> room = roomBoImpl.searchRoomCode();
         ObservableList oList= FXCollections.observableArrayList(room);
         roomIdBox.setItems(oList);
     }
 
     private String generateStudentId() throws SQLException, ClassNotFoundException {
-        String stId = null;
-        try {
-            stId = studentBoImpl.generateNewStudentId();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String stId = studentBoImpl.generateNewStudentId();
         if (stId != null) {
             int newId = Integer.parseInt(stId.replace("S00-", "")) + 1;
             return String.format("S00-%03d", newId);
@@ -164,11 +150,7 @@ public class NewReservationFormController implements Initializable {
         String dob = String.valueOf(DatePicker.getValue());
         String gd = gender;
 
-        try {
-            boolean s = studentBoImpl.saveStudent(new Student(sId,sName,sAddress,Integer.parseInt(sContact),dob,gd));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        boolean s = studentBoImpl.saveStudent(new Student(sId,sName,sAddress,Integer.parseInt(sContact),dob,gd));
         selectRoom(sId);
 
 
@@ -181,12 +163,7 @@ public class NewReservationFormController implements Initializable {
         String rmId = roomId.getText();
 
         Reservation res = new Reservation(resId,roomT,sId,resDate,status);
-        boolean r = false;
-        try {
-            r = reservationBo.saveReservation(res);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        boolean r = reservationBo.saveReservation(res);
         if (r){
             System.out.println("done");
         }
@@ -223,7 +200,6 @@ public class NewReservationFormController implements Initializable {
             payNow.setSelected(false);
         }
     }
-
-    public void getDate(ActionEvent actionEvent) {
-    }
 }
+
+
