@@ -1,9 +1,11 @@
 package lk.ijse.HostelManagementSystem.controller;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -16,13 +18,7 @@ import lk.ijse.HostelManagementSystem.bo.custom.StudentBo;
 import java.io.IOException;
 
 public class NewReservationFormController {
-    public JFXTextField txtStudentId;
-    public JFXTextField txtName;
-    public JFXTextField txtContact;
-    public JFXTextField txtAddress;
-    public JFXTextField txtRoomId;
-    public JFXTextField txtKeymoney;
-    public DatePicker datepicker;
+
     public RadioButton maleBtn;
     public RadioButton femaleBtn;
     public Label lblGender;
@@ -30,27 +26,25 @@ public class NewReservationFormController {
     public RadioButton payLater;
     public AnchorPane newResevationContext;
     public ImageView homeBtn;
+    public JFXTextField studentId;
+    public JFXTextField studentName;
+    public JFXTextField studentContact;
+    public javafx.scene.control.DatePicker DatePicker;
+    public JFXTextField studentAddress;
+    public Label genderTxt;
+    public JFXComboBox roomIdBox;
+    public JFXTextField roomId;
+    public JFXTextField keyMoney;
+    public Button checkAvailable;
+    public Button checkRoomBtn;
+    public JFXTextField roomType;
     /* private StudentBo studentBo = (StudentBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.STUDENT);
      private RoomBo roomBo = (RoomBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ROOM);*/
     String gender;
     String status;
 
-    public void btnConfirmOnAction(ActionEvent actionEvent) {
 
-    }
 
-    public void btnAllOnAction(ActionEvent actionEvent) throws IOException {
-        newResevationContext .getChildren().clear();
-        Parent parent = FXMLLoader.load(getClass().getResource("../views/AllReservationsForm.fxml"));
-        newResevationContext.getChildren().add(parent);
-
-    }
-
-    public void btnCheckAvailabilityOnAction(ActionEvent actionEvent) throws IOException {
-        newResevationContext.getChildren().clear();
-        Parent parent = FXMLLoader.load(getClass().getResource("../views/AvailableRoomForm.fxml"));
-        newResevationContext.getChildren().add(parent);
-    }
 
     public void getDate(ActionEvent actionEvent) {
     }
@@ -75,5 +69,18 @@ public class NewReservationFormController {
             status = "Key Money is not Payed";
             payNow.setSelected(false);
         }
+    }
+
+    public void checkRooms(ActionEvent actionEvent) {
+    }
+
+    public void checkAvailableRooms(ActionEvent actionEvent) throws IOException {
+        newResevationContext.getChildren().clear();
+        Parent parent = FXMLLoader.load(getClass().getResource("../views/AvailableRoomForm.fxml"));
+        newResevationContext.getChildren().add(parent);
+
+    }
+
+    public void comfirmReservation(ActionEvent actionEvent) {
     }
 }
