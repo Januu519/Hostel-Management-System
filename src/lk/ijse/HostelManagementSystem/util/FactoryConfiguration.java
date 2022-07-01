@@ -2,6 +2,7 @@ package lk.ijse.HostelManagementSystem.util;
 
 import lk.ijse.HostelManagementSystem.entity.Room;
 import lk.ijse.HostelManagementSystem.entity.Student;
+import lk.ijse.HostelManagementSystem.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -23,7 +24,7 @@ public class FactoryConfiguration {
        /* configuration.addAnnotatedClass(Reservation.class);*/
         configuration.addAnnotatedClass(Student.class);
         configuration.addAnnotatedClass(Room.class);
-       /* configuration.addAnnotatedClass(UserLogin.class);*/
+        configuration.addAnnotatedClass(User.class);
 
         sessionFactory = configuration.buildSessionFactory();
 

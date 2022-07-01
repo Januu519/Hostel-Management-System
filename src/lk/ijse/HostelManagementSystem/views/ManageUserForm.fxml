@@ -14,12 +14,12 @@
 
 <AnchorPane prefHeight="744.0" prefWidth="1026.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.HostelManagementSystem.controller.ManageUserFormController">
    <children>
-      <ImageView fitHeight="744.0" fitWidth="1026.0" layoutX="-1.0" opacity="0.64" pickOnBounds="true">
+      <ImageView fitHeight="744.0" fitWidth="1026.0" layoutX="-1.0" pickOnBounds="true">
          <image>
             <Image url="@../asserts/users.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="744.0" opacity="0.71" stroke="BLACK" strokeType="INSIDE" width="1026.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="666.0" layoutY="81.0" opacity="0.7" stroke="BLACK" strokeType="INSIDE" width="1026.0" />
       <Pane prefHeight="83.0" prefWidth="1026.0" style="-fx-background-color: #8e44ad;">
          <children>
             <Label layoutX="261.0" text="M a n a g e  U s e r s" textFill="#e5ff00">
@@ -27,46 +27,54 @@
                   <Font name="System Bold" size="48.0" />
                </font>
             </Label>
+            <ImageView fx:id="homeBtn" fitHeight="61.0" fitWidth="63.0" layoutX="924.0" layoutY="11.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../asserts/home-page.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3dceff" height="417.0" layoutX="31.0" layoutY="142.0" opacity="0.63" stroke="#3ce5ff" strokeType="INSIDE" width="422.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fe9ff" height="297.0" layoutX="513.0" layoutY="150.0" opacity="0.59" stroke="#11afe4" strokeType="INSIDE" width="378.0" />
       <Separator layoutX="-2.0" layoutY="82.0" opacity="0.33" prefHeight="3.0" prefWidth="1026.0" />
-      <JFXTextField fx:id="txtUserId" labelFloat="true" layoutX="63.0" layoutY="171.0" prefHeight="31.0" prefWidth="340.0" promptText="User Id" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="userId" focusColor="WHITE" labelFloat="true" layoutX="63.0" layoutY="171.0" prefHeight="31.0" prefWidth="340.0" promptText="User Id" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtUsersName" labelFloat="true" layoutX="63.0" layoutY="265.0" prefHeight="31.0" prefWidth="340.0" promptText="User's Name" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="userName" labelFloat="true" layoutX="63.0" layoutY="265.0" prefHeight="31.0" prefWidth="340.0" promptText="User's Name" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="63.0" layoutY="367.0" prefHeight="31.0" prefWidth="340.0" promptText="Address" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="userAddress" labelFloat="true" layoutX="63.0" layoutY="367.0" prefHeight="31.0" prefWidth="340.0" promptText="Address" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtContact" labelFloat="true" layoutX="56.0" layoutY="474.0" prefHeight="31.0" prefWidth="340.0" promptText="Contact" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="userContact" labelFloat="true" layoutX="56.0" layoutY="474.0" prefHeight="31.0" prefWidth="340.0" promptText="Contact" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXTextField>
-      <Separator layoutX="481.0" layoutY="193.0" orientation="VERTICAL" prefHeight="347.0" prefWidth="4.0" />
-      <JFXTextField fx:id="txtUsername" labelFloat="true" layoutX="547.0" layoutY="178.0" prefHeight="45.0" prefWidth="304.0" promptText="Username" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="uName" labelFloat="true" layoutX="547.0" layoutY="178.0" prefHeight="45.0" prefWidth="304.0" promptText="Username" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField fx:id="pwdPassword" labelFloat="true" layoutX="548.0" layoutY="265.0" prefHeight="45.0" prefWidth="304.0" promptText="Password" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
+      <JFXPasswordField fx:id="uPassword" labelFloat="true" layoutX="548.0" layoutY="265.0" prefHeight="45.0" prefWidth="304.0" promptText="Password" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXPasswordField>
-      <JFXPasswordField fx:id="pdwConfirmPassword" layoutX="543.0" layoutY="350.0" prefHeight="45.0" prefWidth="313.0" promptText="Confirm Password" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
+      <JFXPasswordField fx:id="comfirmPassword" layoutX="543.0" layoutY="350.0" prefHeight="45.0" prefWidth="313.0" promptText="Confirm Password" style="-fx-prompt-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXPasswordField>
-      <Button layoutX="566.0" layoutY="673.0" mnemonicParsing="false" onAction="#btnUpdateAccountOnAction" text="Update Account" />
-      <Button layoutX="769.0" layoutY="673.0" mnemonicParsing="false" onAction="#btnDeleteAccountOnAction" text="Delete Account" />
+      <Button fx:id="updateb" layoutX="566.0" layoutY="673.0" mnemonicParsing="false" onAction="#updateUser" text="Update Account" />
+      <Button fx:id="delete" layoutX="769.0" layoutY="673.0" mnemonicParsing="false" onAction="#deleteUser" text="Delete Account" />
+      <Button fx:id="add" layoutX="216.0" layoutY="673.0" mnemonicParsing="false" onAction="#addRoom" text="Add User" />
+      <Button fx:id="clear" layoutX="396.0" layoutY="673.0" mnemonicParsing="false" onAction="#clearData" text="Clear Fields" />
    </children>
 </AnchorPane>

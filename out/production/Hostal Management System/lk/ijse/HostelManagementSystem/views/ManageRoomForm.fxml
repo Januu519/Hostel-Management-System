@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -16,6 +17,7 @@
    <children>
       <Pane prefHeight="744.0" prefWidth="1026.0" style="-fx-background-color: black;">
          <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00c3ff" height="505.0" layoutX="40.0" layoutY="104.0" opacity="0.7" stroke="BLACK" strokeType="INSIDE" width="828.0" />
             <ImageView fitHeight="744.0" fitWidth="1026.0" layoutX="-1.0" layoutY="1.0" opacity="0.41" pickOnBounds="true">
                <image>
                   <Image url="@../asserts/66hj_jpi4_201128.jpg" />
@@ -24,7 +26,6 @@
             <JFXTextField fx:id="txtKeymoney" layoutX="285.0" layoutY="416.0" prefHeight="31.0" prefWidth="376.0" unFocusColor="WHITE" />
             <JFXTextField fx:id="txtRoomId" layoutX="285.0" layoutY="235.0" prefHeight="31.0" prefWidth="376.0" unFocusColor="WHITE" />
             <JFXTextField fx:id="txtQty" layoutX="285.0" layoutY="512.0" prefHeight="31.0" prefWidth="376.0" unFocusColor="WHITE" />
-            <JFXComboBox fx:id="roomTypeBox" layoutX="285.0" layoutY="326.0" prefHeight="31.0" prefWidth="376.0" unFocusColor="WHITE" />
             <Text fill="WHITE" layoutX="84.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-prompt-text-fill: white;" text="Select Room :">
                <font>
                   <Font name="System Bold" size="24.0" />
@@ -50,11 +51,11 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Text>
-            <JFXComboBox fx:id="roomIdBox" layoutX="285.0" layoutY="147.0" prefHeight="31.0" prefWidth="376.0" unFocusColor="WHITE" />
-            <Button layoutX="85.0" layoutY="643.0" mnemonicParsing="false" onAction="#btnClearFieldsOnActiion" text="Clear Fields" />
-            <Button layoutX="274.0" layoutY="643.0" mnemonicParsing="false" onAction="#btnAddRoomOnAction" text="Add Room" />
-            <Button layoutX="460.0" layoutY="643.0" mnemonicParsing="false" onAction="#btnUpdateRoomOnAction" text="Update Room" />
-            <Button layoutX="683.0" layoutY="643.0" mnemonicParsing="false" onAction="#btnDeleteOnaction" text="Delete Room" />
+            <JFXComboBox fx:id="roomIdBox" labelFloat="true" layoutX="285.0" layoutY="147.0" prefHeight="31.0" prefWidth="376.0" unFocusColor="WHITE" />
+            <Button layoutX="105.0" layoutY="669.0" mnemonicParsing="false" onAction="#btnClearFieldsOnActiion" text="Clear Fields" />
+            <Button layoutX="261.0" layoutY="669.0" mnemonicParsing="false" onAction="#btnAddRoomOnAction" text="Add Room" />
+            <Button layoutX="423.0" layoutY="669.0" mnemonicParsing="false" onAction="#btnUpdateRoomOnAction" text="Update Room" />
+            <Button layoutX="608.0" layoutY="661.0" mnemonicParsing="false" onAction="#btnDeleteOnaction" text="Delete Room" />
             <Pane layoutX="-1.0" layoutY="1.0" opacity="0.85" prefHeight="77.0" prefWidth="1026.0" style="-fx-background-color: #8e44ad;">
                <children>
                   <Label layoutX="268.0" layoutY="8.0" text="M a n a g e  R o o m s" textFill="#f3ff06">
@@ -62,9 +63,15 @@
                         <Font name="System Bold" size="42.0" />
                      </font>
                   </Label>
+                  <ImageView fx:id="homeBtn" fitHeight="62.0" fitWidth="64.0" layoutX="932.0" layoutY="8.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../asserts/home-page.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
             <Separator layoutX="-1.0" layoutY="79.0" opacity="0.32" prefWidth="1026.0" />
+            <JFXTextField fx:id="roomType" layoutX="285.0" layoutY="326.0" prefHeight="31.0" prefWidth="376.0" unFocusColor="WHITE" />
          </children></Pane>
    </children>
 </AnchorPane>

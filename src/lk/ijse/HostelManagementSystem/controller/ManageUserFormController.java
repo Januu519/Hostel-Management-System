@@ -4,38 +4,84 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import com.mysql.cj.x.protobuf.MysqlxCrud;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import lk.ijse.HostelManagementSystem.bo.BOFactory;
+import lk.ijse.HostelManagementSystem.bo.custom.impl.UserBoImpl;
+import lk.ijse.HostelManagementSystem.entity.User;
 import org.hibernate.sql.Update;
 
-public class ManageUserFormController {
-    public JFXTextField txtUserId;
-    public JFXTextField txtUsersName;
-    public JFXTextField txtAddress;
-    public JFXTextField txtContact;
-    public JFXTextField txtUsername;
-    public JFXPasswordField pwdPassword;
-    public JFXPasswordField pdwConfirmPassword;
+import java.io.IOException;
+import java.sql.SQLException;
 
-    public void btnUpdateAccountOnAction(ActionEvent actionEvent) {
-       /* String p1 = pwdPassword.getText();
-        String p2 = pdwConfirmPassword.getText();
+public class ManageUserFormController {
+
+    public ImageView homeBtn;
+    public Button updateb;
+    public Button delete;
+    public Button add;
+    public Button clear;
+    public JFXTextField userId;
+    public JFXTextField userName;
+    public JFXTextField userAddress;
+    public JFXTextField userContact;
+    public JFXTextField uName;
+    public JFXPasswordField uPassword;
+    public JFXPasswordField comfirmPassword;
+    UserBoImpl userBoImpl = (UserBoImpl) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
+
+
+    public void updateUser(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
+        String p1 = uPassword.getText();
+        String p2 = comfirmPassword.getText();
 
         if (p2.equals(p1)){
-            Update();
+            String s = "update";
+            addAndUpdate(s);
         }else{
-            // Show alert about passwords are not match
+            new Alert(Alert.AlertType.WARNING,"Passwords are Doesn't Match !..").showAndWait();
         }
-        public void Update(){
-            String UId = UserId.getText();
-            String Name = UserName.getText();
-            String uAddress = UserAddress.getText();
-            int uContact = Integer.parseInt(userContact.getText());
-            String usName = uName.getText();
-            String newPassword = comfirmPassword.getText();
-        */
     }
 
-    public void btnDeleteAccountOnAction(ActionEvent actionEvent) {
-           /* String uId = UserId.getText();*/
+    public void deleteUser(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
+        String uId = userId.getText();
+        boolean deleted = userBoImpl.deleteUser(uId);
+
+    }
+
+    public void addRoom(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
+        String s = "add";
+        addAndUpdate(s);
+    }
+
+    private void addAndUpdate(String s) throws SQLException, IOException, ClassNotFoundException {
+
+
+        String uId = userId.getText();
+        String Name = userName.getText();
+        String uAddress = userAddress.getText();
+        int uContact = Integer.parseInt(userContact.getText());
+        String usName = uName.getText();
+        String newPassword = comfirmPassword.getText();
+
+        if(s.equals("add")){
+            boolean b = userBoImpl.saveUser(new User(uId,Name,uAddress,uContact,usName,newPassword));
+        }
+        else if (s.equals("update")){
+            boolean b = userBoImpl.updateUser(new User(uId,Name,uAddress,uContact,usName,newPassword));
         }
     }
+
+    public void clearData(ActionEvent actionEvent) {
+        userId.clear();
+        uName.clear();
+        userAddress.clear();
+        userContact.clear();
+        userName.clear();
+        uPassword.clear();
+        comfirmPassword.clear();
+
+    }
+}
 

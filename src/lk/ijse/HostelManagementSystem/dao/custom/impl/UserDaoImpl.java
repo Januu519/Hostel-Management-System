@@ -1,7 +1,7 @@
 package lk.ijse.HostelManagementSystem.dao.custom.impl;
 
-import lk.ijse.HostelManagementSystem.dao.custom.RoomDao;
-import lk.ijse.HostelManagementSystem.entity.Room;
+import lk.ijse.HostelManagementSystem.dao.custom.UserDao;
+import lk.ijse.HostelManagementSystem.entity.User;
 import lk.ijse.HostelManagementSystem.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -10,12 +10,15 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class RoomDaoImpl implements RoomDao {
-    private Session session;
-    private Transaction transaction;
 
 
-    @Override
+public class UserDaoImpl implements UserDao {
+        private Session session;
+        private Transaction transaction;
+        int newCode;
+
+
+        @Override
     public String exist() throws SQLException, ClassNotFoundException {
         return null;
     }
@@ -26,17 +29,18 @@ public class RoomDaoImpl implements RoomDao {
     }
 
     @Override
-    public ArrayList<Room> getAll() throws SQLException, ClassNotFoundException {
+    public ArrayList<User> getAll() throws SQLException, ClassNotFoundException {
         return null;
     }
 
     @Override
-    public boolean save(Room dto) throws SQLException, ClassNotFoundException, IOException {
-        session = FactoryConfiguration.getInstance().getSession();
+    public boolean save(User dto) throws SQLException, ClassNotFoundException, IOException {
+      session = FactoryConfiguration.getInstance().getSession();
         transaction = session.beginTransaction();
         session.save(dto);
         transaction.commit();
         session.close();
+
         return true;
     }
 
@@ -46,17 +50,18 @@ public class RoomDaoImpl implements RoomDao {
     }
 
     @Override
-    public Room search(String s) throws SQLException, ClassNotFoundException {
+    public User search(String s) throws SQLException, ClassNotFoundException {
         return null;
     }
 
     @Override
-    public boolean update(Room dto) throws SQLException, ClassNotFoundException, IOException {
+    public boolean update(User dto) throws SQLException, ClassNotFoundException, IOException {
         session = FactoryConfiguration.getInstance().getSession();
         transaction = session.beginTransaction();
         session.update(dto);
         transaction.commit();
         session.close();
+
         return true;
 
     }
@@ -65,11 +70,10 @@ public class RoomDaoImpl implements RoomDao {
     public boolean delete(String s) throws SQLException, ClassNotFoundException, IOException {
         session = FactoryConfiguration.getInstance().getSession();
         transaction = session.beginTransaction();
-        Room room = session.load(Room.class, s);
-        session.delete(room);
+        User user = session.load(User.class,s);
+        session.delete(user);
         transaction.commit();
         session.close();
         return true;
     }
-
 }
