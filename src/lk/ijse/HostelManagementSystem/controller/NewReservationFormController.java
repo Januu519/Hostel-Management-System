@@ -88,7 +88,7 @@ public class NewReservationFormController implements Initializable {
 
     }
 
-    private String generateRoomId() throws SQLException, ClassNotFoundException {
+    private String generateRoomId() throws Exception {
         String rId = null;
         try {
             rId = reservationBo.generateNewId();
@@ -103,7 +103,7 @@ public class NewReservationFormController implements Initializable {
         }
     }
 
-    private void loadAllId() throws SQLException, ClassNotFoundException {
+    private void loadAllId() throws Exception {
         ArrayList<String> room = null;
         try {
             room = roomBoImpl.searchRoomCode();
@@ -114,7 +114,7 @@ public class NewReservationFormController implements Initializable {
         roomIdBox.setItems(oList);
     }
 
-    private String generateStudentId() throws SQLException, ClassNotFoundException {
+    private String generateStudentId() throws Exception {
         String stId = null;
         try {
             stId = studentBoImpl.generateNewStudentId();
@@ -130,11 +130,11 @@ public class NewReservationFormController implements Initializable {
     }
 
 
-    public void comfirmReservation(ActionEvent actionEvent) throws SQLException, ClassNotFoundException{
+    public void comfirmReservation(ActionEvent actionEvent) throws Exception{
         addStudent();
     }
 
-    private void addStudent() throws SQLException, ClassNotFoundException{
+    private void addStudent() throws Exception{
         String sId = studentId.getText();
         String sName = studentName.getText();
         String sAddress = studentAddress.getText();
@@ -150,7 +150,7 @@ public class NewReservationFormController implements Initializable {
         selectRoom(sId);
     }
 
-    private void selectRoom(String sId) throws SQLException, ClassNotFoundException{
+    private void selectRoom(String sId) throws Exception{
         String resId = roomId.getText();
         String roomT = roomType.getText();
         String resDate = today();
@@ -169,7 +169,7 @@ public class NewReservationFormController implements Initializable {
         manageRoom();
     }
 
-    private void manageRoom() throws SQLException, ClassNotFoundException {
+    private void manageRoom() throws Exception {
         String selectedRoom = roomType.getText();
 
         boolean d = roomBoImpl.updateQty(selectedRoom);
@@ -205,8 +205,8 @@ public class NewReservationFormController implements Initializable {
     }
 
     // Navigation
-    public void goHome(MouseEvent mouseEvent) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("../view/dashboardForm.fxml"));
+    public void goHome(MouseEvent mouseEvent) throws Exception {
+        Parent parent = FXMLLoader.load(getClass().getResource("../views/dashboardForm.fxml"));
         Stage stage1 = new Stage();
         stage1.setScene(new Scene(parent));
         stage1.show();
@@ -216,16 +216,16 @@ public class NewReservationFormController implements Initializable {
     }
 
     // Navigation
-    public void checkRooms(ActionEvent actionEvent) throws IOException {
+    public void checkRooms(ActionEvent actionEvent) throws Exception{
         newResevationContext.getChildren().clear();
-        Parent parent = FXMLLoader.load(getClass().getResource("../view/AllReservationForm.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("../views/AllReservationsForm.fxml"));
         newResevationContext.getChildren().add(parent);
     }
 
     // Navigation
-    public void checkAvailableRooms(ActionEvent actionEvent) throws IOException {
+    public void checkAvailableRooms(ActionEvent actionEvent) throws Exception {
         newResevationContext.getChildren().clear();
-        Parent parent = FXMLLoader.load(getClass().getResource("../view/AVailableRoomForm.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("../views/AvailableRoomForm.fxml"));
         newResevationContext.getChildren().add(parent);
     }
 

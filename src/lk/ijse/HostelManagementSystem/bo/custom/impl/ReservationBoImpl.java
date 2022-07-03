@@ -9,28 +9,29 @@ import lk.ijse.HostelManagementSystem.entity.Reservation;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class  ReservationBoImpl implements ReservationBo {
     ReservationDaoImpl reservationDaoImpl = (ReservationDaoImpl) DaoFactory.getDaoFactory().getDAO(DaoFactory.DAOTypes.RESERVATION);
 
 
     @Override
-    public ArrayList<Reservation> getAllReservation() throws SQLException, ClassNotFoundException {
-        return null;
+    public List<Reservation> getAllReservation() throws Exception {
+        return reservationDaoImpl.getAll();
     }
 
     @Override
-    public boolean deleteReservation(String code) throws SQLException, ClassNotFoundException {
+    public boolean deleteReservation(String code) throws Exception {
         return false;
     }
 
     @Override
-    public boolean saveReservation(Reservation dto) throws SQLException, ClassNotFoundException, IOException {
+    public boolean saveReservation(Reservation dto) throws Exception{
         return reservationDaoImpl.save(dto);
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException, IOException {
+    public String generateNewId() throws Exception {
         return reservationDaoImpl.generateNewID();
     }
 }

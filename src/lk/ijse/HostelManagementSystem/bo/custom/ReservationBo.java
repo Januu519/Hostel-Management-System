@@ -6,14 +6,15 @@ import lk.ijse.HostelManagementSystem.entity.Reservation;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public interface ReservationBo extends SuperBo {
-    ArrayList<Reservation> getAllReservation() throws SQLException, ClassNotFoundException;
+    List<Reservation> getAllReservation() throws Exception;
 
-    boolean deleteReservation(String code) throws SQLException, ClassNotFoundException;
+    boolean deleteReservation(String code) throws Exception;
 
-    boolean saveReservation(Reservation dto) throws SQLException, ClassNotFoundException, IOException;
+    boolean saveReservation(Reservation dto) throws Exception;
 
-    String generateNewId() throws SQLException, ClassNotFoundException, IOException;
+    String generateNewId() throws Exception;
 
 }

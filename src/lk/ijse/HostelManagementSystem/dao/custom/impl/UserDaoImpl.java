@@ -9,7 +9,7 @@ import org.hibernate.Transaction;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import java.util.List;
 
 
 public class UserDaoImpl implements UserDao {
@@ -19,22 +19,22 @@ public class UserDaoImpl implements UserDao {
 
 
         @Override
-    public String exist() throws SQLException, ClassNotFoundException {
+    public String exist() throws Exception {
         return null;
     }
 
     @Override
-    public String generateNewID() throws SQLException, ClassNotFoundException {
+    public String generateNewID() throws Exception{
         return null;
     }
 
     @Override
-    public ArrayList<User> getAll() throws SQLException, ClassNotFoundException {
+    public List<User> getAll() throws Exception {
         return null;
     }
 
     @Override
-    public boolean save(User dto) throws SQLException, ClassNotFoundException, IOException {
+    public boolean save(User dto) throws Exception {
       session = FactoryConfiguration.getInstance().getSession();
         transaction = session.beginTransaction();
         session.save(dto);
@@ -45,17 +45,17 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public ArrayList<String> searchId() throws SQLException, ClassNotFoundException {
+    public ArrayList<String> searchId() throws Exception {
         return null;
     }
 
     @Override
-    public User search(String s) throws SQLException, ClassNotFoundException {
+    public User search(String s) throws Exception {
         return null;
     }
 
     @Override
-    public boolean update(User dto) throws SQLException, ClassNotFoundException, IOException {
+    public boolean update(User dto) throws Exception {
         session = FactoryConfiguration.getInstance().getSession();
         transaction = session.beginTransaction();
         session.update(dto);
@@ -67,7 +67,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean delete(String s) throws SQLException, ClassNotFoundException, IOException {
+    public boolean delete(String s) throws Exception {
         session = FactoryConfiguration.getInstance().getSession();
         transaction = session.beginTransaction();
         User user = session.load(User.class,s);

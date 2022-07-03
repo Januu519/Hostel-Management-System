@@ -20,13 +20,13 @@
                         <Font name="System Bold" size="44.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="homeBtn" fitHeight="59.0" fitWidth="70.0" layoutX="933.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="homeBtn" fitHeight="59.0" fitWidth="70.0" layoutX="933.0" layoutY="12.0" onMouseClicked="#homebtn" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../asserts/home-page.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="72.0" fitWidth="70.0" layoutX="125.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="backBtn" fitHeight="65.0" fitWidth="70.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="backBtn" fitHeight="65.0" fitWidth="70.0" layoutX="14.0" layoutY="10.0" onMouseClicked="#backbtn" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../asserts/back.png" />
                      </image>

@@ -7,22 +7,23 @@ import lk.ijse.HostelManagementSystem.entity.User;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public interface UserBO extends SuperBo {
-    ArrayList<User> getAllUser() throws SQLException, ClassNotFoundException;
+    List<User> getAllUser() throws Exception;
 
-    boolean deleteUser(String code) throws SQLException, ClassNotFoundException, IOException;
+    boolean deleteUser(String code) throws Exception;
 
-    boolean saveUser(User dto) throws SQLException, ClassNotFoundException, IOException;
+    boolean saveUser(User dto) throws Exception;
 
-    boolean updateUser(User dto) throws SQLException, ClassNotFoundException, IOException;
+    boolean updateUser(User dto) throws Exception;
 
-    boolean existsUser(String code) throws SQLException, ClassNotFoundException;
+    boolean existsUser(String code) throws Exception;
 
-    Room searchUser(String code) throws SQLException, ClassNotFoundException;
+    Room searchUser(String code) throws Exception;
 
-    String generateNewUserId() throws SQLException, ClassNotFoundException;
+    String generateNewUserId() throws Exception;
 
-    ArrayList<String> searchUserCode() throws SQLException, ClassNotFoundException;
+    ArrayList<String> searchUserCode() throws Exception;
 
 }

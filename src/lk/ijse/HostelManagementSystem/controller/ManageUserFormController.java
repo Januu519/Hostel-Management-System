@@ -32,7 +32,7 @@ public class ManageUserFormController {
     UserBoImpl userBoImpl = (UserBoImpl) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
 
 
-    public void updateUser(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
+    public void updateUser(ActionEvent actionEvent) throws Exception{
         String p1 = uPassword.getText();
         String p2 = comfirmPassword.getText();
 
@@ -44,18 +44,18 @@ public class ManageUserFormController {
         }
     }
 
-    public void deleteUser(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
+    public void deleteUser(ActionEvent actionEvent) throws Exception {
         String uId = userId.getText();
         boolean deleted = userBoImpl.deleteUser(uId);
 
     }
 
-    public void addRoom(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
+    public void addRoom(ActionEvent actionEvent) throws Exception {
         String s = "add";
         addAndUpdate(s);
     }
 
-    private void addAndUpdate(String s) throws SQLException, IOException, ClassNotFoundException {
+    private void addAndUpdate(String s) throws Exception {
 
 
         String uId = userId.getText();

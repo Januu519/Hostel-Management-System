@@ -18,12 +18,12 @@ public class StudentDaoImpl implements StudentDao {
 
 
     @Override
-    public String exist() throws SQLException, ClassNotFoundException {
+    public String exist() throws Exception {
         return null;
     }
 
     @Override
-    public String generateNewID() throws SQLException, ClassNotFoundException, IOException {
+    public String generateNewID() throws Exception {
         session = FactoryConfiguration.getInstance().getSession();
         transaction = session.beginTransaction();
 
@@ -42,7 +42,7 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public ArrayList<Student> getAll() throws SQLException, ClassNotFoundException {
+    public List<Student> getAll() throws SQLException, ClassNotFoundException {
         return null;
     }
 

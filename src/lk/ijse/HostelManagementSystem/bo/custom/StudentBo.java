@@ -7,21 +7,22 @@ import lk.ijse.HostelManagementSystem.entity.Student;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public interface StudentBo extends SuperBo {
-    ArrayList<Student> getAllStudent() throws SQLException, ClassNotFoundException;
+    List<Student> getAllStudent() throws Exception;
 
-    boolean deleteStudent(String code) throws SQLException, ClassNotFoundException;
+    boolean deleteStudent(String code) throws Exception;
 
-    boolean saveStudent(Student dto) throws SQLException, ClassNotFoundException, IOException;
+    boolean saveStudent(Student dto) throws Exception;
 
-    boolean updateStudent(Student dto) throws SQLException, ClassNotFoundException, IOException;
+    boolean updateStudent(Student dto) throws Exception;
 
-    boolean existsStudent(String code) throws SQLException, ClassNotFoundException;
+    boolean existsStudent(String code) throws Exception;
 
-    Student searchStudent(String code) throws SQLException, ClassNotFoundException, IOException;
+    Student searchStudent(String code) throws Exception;
 
-    String generateNewStudentId() throws SQLException, ClassNotFoundException, IOException;
+    String generateNewStudentId() throws Exception;
 
-    ArrayList<String> searchStudentCode() throws SQLException, ClassNotFoundException, IOException;
+    ArrayList<String> searchStudentCode() throws Exception;
 }

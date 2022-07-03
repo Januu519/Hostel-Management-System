@@ -31,7 +31,7 @@ public class ManageRoomFormController {
 
     }
 
-    public void btnAddRoomOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException, IOException {
+    public void btnAddRoomOnAction(ActionEvent actionEvent) throws Exception {
         String roomTypeId = txtRoomId.getText();
         String rType = roomType.getText();
         String kMoney = txtKeymoney.getText();
@@ -43,7 +43,7 @@ public class ManageRoomFormController {
 
     }
 
-    public void btnUpdateRoomOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException, IOException {
+    public void btnUpdateRoomOnAction(ActionEvent actionEvent) throws Exception {
         String roomTypeId = txtRoomId.getText();
         String rType = roomType.getText();
         String kMoney = txtKeymoney.getText();
@@ -56,7 +56,7 @@ public class ManageRoomFormController {
 
     }
 
-    public void btnDeleteOnaction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException, IOException {
+    public void btnDeleteOnaction(ActionEvent actionEvent) throws Exception {
         String roomTypeId = txtRoomId.getText();
 
         boolean b = roomBoImpl.deleteRoom(roomTypeId);

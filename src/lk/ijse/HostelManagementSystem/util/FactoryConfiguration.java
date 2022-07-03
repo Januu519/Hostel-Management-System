@@ -12,32 +12,28 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class FactoryConfiguration {
+
     private static FactoryConfiguration factoryConfiguration;
-    private final SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
-
-    private FactoryConfiguration() throws IOException, IOException {
-        Configuration configuration = new Configuration();
-        Properties p = new Properties();
-        p.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("hibernate.properties"));
-        configuration.setProperties(p);
-
-       configuration.addAnnotatedClass(Reservation.class);
-        configuration.addAnnotatedClass(Student.class);
-        configuration.addAnnotatedClass(Room.class);
-        configuration.addAnnotatedClass(User.class);
-
-        sessionFactory = configuration.buildSessionFactory();
-
+    private FactoryConfiguration(){
+        Configuration configure = new Configuration()
+                .addAnnotatedClass(Student.class)
+                .addAnnotatedClass(Room.class)
+                .addAnnotatedClass(Reservation.class)
+                .addAnnotatedClass(User.class);
+        sessionFactory = configure.buildSessionFactory();
     }
 
-    public static FactoryConfiguration getInstance() throws IOException {
-        return (factoryConfiguration == null) ? factoryConfiguration = new FactoryConfiguration()
-                : factoryConfiguration;
+    public static FactoryConfiguration getInstance(){
+        return (factoryConfiguration == null) ? factoryConfiguration = new FactoryConfiguration() : factoryConfiguration;
     }
 
-    public Session getSession() {
+    public Session getSession(){
         return sessionFactory.openSession();
     }
-
 }
+
+
+
+

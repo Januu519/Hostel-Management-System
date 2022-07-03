@@ -14,27 +14,27 @@ public class UserBoImpl implements UserBO {
     UserDaoImpl userDaoImpl = (UserDaoImpl) DaoFactory.getDaoFactory().getDAO(DaoFactory.DAOTypes.USER);
 
     @Override
-    public ArrayList<User> getAllUser() throws SQLException, ClassNotFoundException {
+    public ArrayList<User> getAllUser() throws Exception{
         return null;
     }
 
     @Override
-    public boolean deleteUser(String code) throws SQLException, ClassNotFoundException, IOException {
+    public boolean deleteUser(String code) throws Exception {
         return userDaoImpl.delete(code);
     }
 
     @Override
-    public boolean saveUser(User dto) throws SQLException, ClassNotFoundException, IOException {
+    public boolean saveUser(User dto) throws Exception {
         return userDaoImpl.save(dto);
     }
 
     @Override
-    public boolean updateUser(User dto) throws SQLException, ClassNotFoundException, IOException {
+    public boolean updateUser(User dto) throws Exception{
         return userDaoImpl.update(dto);
     }
 
     @Override
-    public boolean existsUser(String code) throws SQLException, ClassNotFoundException {
+    public boolean existsUser(String code) throws Exception {
         return false;
     }
 
