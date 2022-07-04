@@ -69,9 +69,12 @@ public class AvailableRoomFormController implements Initializable {
         availableRoomsContext.getChildren().add(parent);
     }
 
-    public void homebtn(MouseEvent mouseEvent) throws IOException {
+    public void homebtn(MouseEvent mouseEvent) {
+    }
+
+   /* public void homebtn(MouseEvent mouseEvent) throws IOException {
         availableRoomsContext.getChildren().clear();
         Parent parent = FXMLLoader.load(getClass().getResource("../views/DashBoardForm.fxml"));
         availableRoomsContext.getChildren().add(parent);
-    }
+    }*/
 }
